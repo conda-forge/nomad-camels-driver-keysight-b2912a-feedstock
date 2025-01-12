@@ -1,3 +1,4 @@
+{% set python_min = '3.9.6' %}
 {% set name = "nomad-camels-driver-keysight-b2912a" %}
 {% set version = "0.1.0" %}
 
@@ -6,21 +7,21 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/nomad_camels_driver_keysight_b2912a-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/nomad_camels_driver_keysight_b2912a-{{ version }}.tar.gz
   sha256: b140e457cb4525a73d4e6cd14aa6b8a5a7ad0439b3c87202fa8acf54df80835b
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 1
+  number: 2
 
 requirements:
   host:
-    - python >=3.9.6
+    - python {{ python_min }}
     - setuptools >=61.0
     - pip
   run:
-    - python >=3.9.6
+    - python >={{ python_min }}
     - pyvisa
     - pyvisa-py
 
@@ -31,6 +32,7 @@ test:
     - pip check
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/FAU-LAP/CAMELS_drivers
