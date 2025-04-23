@@ -1,6 +1,6 @@
 {% set python_min = "3.9.6" %}
 {% set name = "nomad-camels-driver-keysight-b2912a" %}
-{% set version = "0.1.1" %}
+{% set version = "0.1.2" %}
 
 package:
   name: {{ name|lower }}
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/nomad_camels_driver_keysight_b2912a-{{ version }}.tar.gz
-  sha256: 9f21dd3ca826f5ecc48c2b7a43b746386a6187bd97c0c1968fa5ce263cc5fab0
+  sha256: efa14e7eaa35ebe42f42cfe273be42ed40fcd71cd4bbeeebd034e042b7caba13
 
 build:
   noarch: python
